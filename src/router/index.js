@@ -32,7 +32,7 @@ const router = createRouter({
     {
       path: "/strategy",
       name: "strategy",
-      component: () => import( "../views/strategy.vue"),
+      component: () => import( "../views/Strategy.vue"),
     },
     {
       path: "/detail/:id",
