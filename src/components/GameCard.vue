@@ -1,23 +1,39 @@
+<script setup>
+defineProps({
+    game: {
+        type: Object,
+        default: {
+            id: 1,
+            title: "Game",
+            short_description: "Placeholder Text",
+            release_date: "31.12.2023",
+            platform: "Windows",
+            thumbnail: "https://img.goodfon.ru/original/2880x1800/c/ca/zvezdy-svechenie-tumannosti.jpg"
+        }
+    },
+})
+</script>
+
 <template>
     <div>
-        <img src="https://img.goodfon.ru/original/2880x1800/c/ca/zvezdy-svechenie-tumannosti.jpg" />
-        <h1>Game</h1>
-        <p>Text</p>
+        <img :src="game.thumbnail" />
+        <h1>{{ game.title }}</h1>
+        <p>{{ game.short_description }}</p>
         <nav>
             <i class="fas fa-desktop"></i>
-            <h4>Windows</h4>
+            <h4>{{ game.platform }}</h4>
         </nav>
         <nav>
             <i class="far fa-clock"></i>
-            <h4>Date</h4>
+            <h4>{{ game.release_date }}</h4>
         </nav>
-        <router-link to="/">See more</router-link>
+        <router-link :to="{ name: 'detail', params: { id: game.id }}">See more</router-link>
     </div>
 </template>
 
 <style scoped>
 div {
-    width: 500px;
+    width: 100%;
     padding: 10px;
     display: flex;
     flex-direction: column;
